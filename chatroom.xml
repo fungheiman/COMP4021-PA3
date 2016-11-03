@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <chatroom>
-  <users><user name="abc"/></users>
-  <messages/>
+  <users><user name="abc"/><user name=""/><user name="(*&amp;^%$#"/><user name="(*&amp;^%$#"/><user name=""/><user name="ishd("/><user name="(*"/><user name="a"/><user name="e"/></users>
+  <messages><message name="a" color="">aaa</message><message name="a" color="">2</message><message name="a" color="">3</message><message name="e" color="">12e21e</message></messages>
 </chatroom>

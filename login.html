@@ -17,11 +17,23 @@
         
         //username input checking
        function checkInput() {
+            var inputname = document.getElementById("name");
+            
             //username cannot be empty
-
-
+            if(inputname.value.length == 0){
+                alert("Please enter a name");
+                return false;
+            }
 
             //username cannot contain illeagl character
+            var reg = new RegExp("\\W"); 
+            if (inputname.value.match(reg)) {
+                alert("Invalid user name!\nPlease don't use space and the following characters.\n\"\':;<>()[]{}!@#$%^&*-+=");
+                return false;
+            }
+
+            return true;
+            window.parent.frames["message"].location.reload();
            
         }
         

@@ -88,6 +88,18 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
             // create a string for the messages
             /* Add your code here */
+            for (var i = lastMsgID; i < messages.length; i++) {
+                var message = messages.item(i);
+                var textcolor = message.getAttribute('color');
+                if(!textcolor) textcolor = "#000000";
+
+                showMessage(message.getAttribute('name'), message.firstChild.nodeValue);
+
+            }
+
+            lastMsgID = messages.length;
+
+            
         }
 
         function showMessage(nameStr, contentStr){

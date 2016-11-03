@@ -28,6 +28,23 @@ if (!$xmlh->fileExist()) {
 //
 
 /* Add your code here */
+$xmlh->openFile();
+
+// Get the 'messages' element as the current element
+$messages_element = $xmlh->getElement("messages");
+
+// Create a 'message' element for each message
+$message_element = $xmlh->addElement($messages_element, "message");
+
+// Add the name
+$xmlh->setAttribute($message_element, "name", $name);
+$color = $_POST["selectedColor"];
+$xmlh->setAttribute($message_element, "color", $color);
+
+// Add the content of the message
+$xmlh->addText($message_element, $message);
+
+$xmlh->saveFile();
 
 header("Location: client.php");
 

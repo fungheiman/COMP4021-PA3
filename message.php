@@ -93,7 +93,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
                 var textcolor = message.getAttribute('color');
                 if(!textcolor) textcolor = "#000000";
 
-                showMessage(message.getAttribute('name'), message.firstChild.nodeValue);
+                showMessage(message.getAttribute('name'), message.firstChild.nodeValue, textcolor);
 
             }
 
@@ -102,7 +102,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
             
         }
 
-        function showMessage(nameStr, contentStr){
+        function showMessage(nameStr, contentStr, color){
                
                 var node = document.getElementById("chattext");
                 // Create the name text span
@@ -111,6 +111,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
                 // Set the attributes and create the text
                 nameNode.setAttribute("x", 100);
                 nameNode.setAttribute("dy", 20);
+                nameNode.setAttribute("fill", color);
                 nameNode.appendChild(document.createTextNode(nameStr));
 
                 // Add the name to the text node
@@ -121,6 +122,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
                 // Set the attributes and create the text
                 conetentNode.setAttribute("x", 200);
+                conetentNode.setAttribute("fill", color);
                 conetentNode.appendChild(document.createTextNode(contentStr));
 
                 // Add the name to the text node

@@ -26,6 +26,22 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
             setTimeout("document.getElementById('msg').focus()",100);
         }
+
+        function onColorSelect(color) {
+            var colorbtns = document.getElementsByClassName("colorBtn");
+            var hiddenField = document.getElementById("selectedColor");
+            hiddenField.setAttribute("value", color.getAttribute("class").split(' ')[1]);
+
+            for (var i = 0; i < colorbtns.length; i++) {
+                colorbtns[i].style.border = "none";
+                colorbtns[i].style.width = "25px";
+                colorbtns[i].style.height = "25px";
+            }
+
+            color.style.border = "2px solid grey";
+            color.style.width = "23px";
+            color.style.height = "23px";
+        }
         //]]>
         </script>
     </head>
@@ -37,10 +53,22 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
                     <td>What is your message?</td>
                 </tr>
                 <tr>
-                    <td><input class="text" type="text" name="message" id="msg" style= "width: 780px" /></td>
+                    <td colspan="2"><input class="text" type="text" name="message" id="msg" style= "width: 780px" /></td>
                 </tr>
                 <tr>
-                    <td><input class="button" type="submit" value="Send Your Message" style="width: 200px" /></td>
+                    <td style= "width: 180px;">Choose your colour:</td>
+                    <td>
+                        <div class="colorBtn black" style="background-color: black;width: 23px;height: 23px;border: 2px solid grey;display: inline-block;cursor: pointer;" onclick="onColorSelect(this)"></div>
+                        <div class="colorBtn red" style="background-color: red;width: 25px;height: 25px;display: inline-block;cursor: pointer;" onclick="onColorSelect(this)"></div>
+                        <div class="colorBtn orange" style="background-color: orange;width: 25px;height: 25px;display: inline-block;cursor: pointer;" onclick="onColorSelect(this)"></div>
+                        <div class="colorBtn seagreen" style="background-color: seagreen;width: 25px;height: 25px;display: inline-block;cursor: pointer;" onclick="onColorSelect(this)"></div>
+                        <div class="colorBtn royalblue" style="background-color: royalblue;width: 25px;height: 25px;display: inline-block;cursor: pointer;" onclick="onColorSelect(this)"></div>
+                        <div class="colorBtn darkviolet" style="background-color: darkviolet;width: 25px;height: 25px;display: inline-block;cursor: pointer;" onclick="onColorSelect(this)"></div>
+                        <input type="hidden" id="selectedColor" name="selectedColor" value="black" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="button" type="submit" value="Send Your Message" style="width: 200px" /></td>
                 </tr>
             </table>
         </form>

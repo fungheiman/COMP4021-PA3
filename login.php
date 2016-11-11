@@ -1,7 +1,7 @@
 <?php
 
 // if name is not in the post data, exit
-if (!isset($_POST["name"])) {
+if (!isset($_POST["name"]) || preg_match("/[^A-Za-z0-9]/", $_POST["name"])) {
     header("Location: error.html");
     exit;
 }

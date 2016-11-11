@@ -12,6 +12,9 @@ $name = $_COOKIE["name"];
 $message = $_POST["message"];
 if (trim($message) == "") $message = "__EMPTY__";
 
+// get the selected color
+$color = $_POST["selectedColor"];
+
 require_once('xmlHandler.php');
 
 // create the chatroom xml file handler
@@ -38,7 +41,8 @@ $message_element = $xmlh->addElement($messages_element, "message");
 
 // Add the name
 $xmlh->setAttribute($message_element, "name", $name);
-$color = $_POST["selectedColor"];
+
+// Add the color
 $xmlh->setAttribute($message_element, "color", $color);
 
 // Add the content of the message

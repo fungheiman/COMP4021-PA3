@@ -74,6 +74,13 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
         </form>
         
         <!--logout button-->
+        <form action="logout.php" style="padding-top: 10px">
+            <input class="button" type="submit" value="Logout" style="width: 200px" />
+        </form>
+
+        <form action="logout.php">
+            <input class="button" type="submit" value="View Online Users" style="width: 200px" />
+        </form>
 
 
     </body>

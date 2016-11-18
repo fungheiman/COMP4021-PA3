@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <chatroom>
-  <users><user name="a"/><user name="123"/><user name="123"/><user name="123"/><user name="yyyyy"/><user name=""/><user name="@(*&amp;#)!("/><user name="()&amp;("/><user name="111"/><user name="*(&amp;(*!@"/><user name="*(&amp;(*!@"/><user name="!"/><user name=""/><user name="123"/></users>
-  <messages><message name="123" color="#000000">test</message><message name="123" color="red">red</message><message name="123" color="orange">orange</message><message name="123" color="#000000">hahah</message><message name="123" color="orange">aaa</message><message name="123" color="#000000">bbb</message><message name="123" color="red">222</message><message name="123" color="#000000">1111</message><message name="123" color="royalblue">222222</message><message name="yyyyy" color="black">11111</message><message name="yyyyy" color="red">121212</message><message name="yyyyy" color="orange">221212</message><message name="yyyyy" color="seagreen">12324123</message><message name="yyyyy" color="darkviolet">23123213</message><message name="123" color="black">123</message></messages>
+  <users/>
+  <messages/>
 </chatroom>

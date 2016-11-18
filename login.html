@@ -43,9 +43,13 @@
     <body onload="clearMessage()">
         <form method="post" action="login.php" onsubmit="javascript:checkInput()">
             <table border="0" cellpadding="5" cellspacing="0">
-                <tr>
-                    <td>Please enter your user name:</td>
+                <tr align="left">
+                    <td style="width: 250px;">Please enter your user name:</td>
                     <td><input class="text" name="name" id="name" type="text" size="20" maxlength="10" /></td>
+                </tr>
+                <tr align="left">
+                    <td style="width: 250px;">Please upload your picture:</td>
+                    <td><input name="userfile" id="userfile" type="file" size="20"/></td>
                 </tr>
                 <tr align="center">
                     <td colspan="2"><input class="button" type="submit" value="Go!" style="width: 150px" /></td>

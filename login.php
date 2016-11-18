@@ -6,6 +6,11 @@ if (!isset($_POST["name"]) || preg_match("/[^A-Za-z0-9]/", $_POST["name"])) {
     exit;
 }
 
+if(empty($_FILES['userfile']['name'])) {
+	header("Location: error.html");
+    exit;
+}
+
 require_once('xmlHandler.php');
 
 // create the chatroom xml file handler

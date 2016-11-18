@@ -32,6 +32,12 @@
                 return false;
             }
 
+            //file upload cannot be empty
+            if(userfile.value.length == 0){
+                alert("Please upload a porfile picture");
+                return false;
+            } 
+
             return true;
             window.parent.frames["message"].location.reload();
            
@@ -49,7 +55,7 @@
                 </tr>
                 <tr align="left">
                     <td style="width: 250px;">Please upload your picture:</td>
-                    <td><input name="userfile" id="userfile" type="file" size="20"/></td>
+                    <td><input class="userfile" name="userfile" id="userfile" type="file" size="20"/></td>
                 </tr>
                 <tr align="center">
                     <td colspan="2"><input class="button" type="submit" value="Go!" style="width: 150px" /></td>

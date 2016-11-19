@@ -8,6 +8,7 @@ if (!isset($_POST["name"])) {
 
 // check uploaded image
 $errors = array();
+$target_path = realpath(dirname(__FILE__)) . "/images/". basename( $_FILES["picture"]["name"]);
 
 if( empty($_FILES['picture']['name']) ) {
 	$errors[] = "Please upload your profile picture";
@@ -18,9 +19,7 @@ if ( !in_array($_FILES['picture']['type'], $allowFileType) ) {
 	$errors[] = "Please upload JPEG or PNG file";
 }
 
-if( empty($errors) ){
-	move_uploaded_file($_FILES['picture']['tmp_name'], "images/". $_FILES['picture']['name']);
-} else {
+if( !empty($errors) || !move_uploaded_file($_FILES['picture']['tmp_name'], $target_path)){
 	print_r($errors);
 	header("Location: error.html");
     exit;
@@ -46,7 +45,7 @@ $user_element = $xmlh->addElement($users_element, "user");
 
 // add the user name
 $xmlh->setAttribute($user_element, "name", $_POST["name"]);
-$xmlh->setAttribute($user_element, "picture", "images/". $_FILES['picture']['name']);
+$xmlh->setAttribute($user_element, "picture", $target_path);
 
 // save the XML file
 $xmlh->saveFile();

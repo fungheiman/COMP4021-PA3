@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <chatroom>
-  <users><user name="aaa" picture="images/"/><user name="444" picture="images/"/><user name="aaa" picture="images/"/><user name="3333" picture="images/"/><user name="999" picture="images/1111.png"/><user name="222" picture="images/1111.png"/></users>
+  <users><user name="333" picture="/Applications/XAMPP/xamppfiles/htdocs/COMP4021-PA3/images/1111.png"/></users>
   <messages/>
 </chatroom>

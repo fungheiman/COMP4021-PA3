@@ -165,8 +165,12 @@ class xmlHandler {
 		return $element->getAttribute($attribute_name);
 	}
 	
-	function removeElement($element, $child) {
-		$element->removeChild($child);
+	// function removeElement($element, $child) {
+	// 	$element->removeChild($child);
+	// }
+
+	function removeElement($element){
+		$element->parentNode->removeChild($element);
 	}
 
 }

@@ -10,30 +10,38 @@ if (!isset($_COOKIE["name"])) {
 }
 
 // create the chatroom xml file handler
-// $xmlh = new xmlHandler("chatroom.xml");
-// if (!$xmlh->fileExist()) {
-//     header("Location: error.html");
-//     exit;
-// }
+$xmlh = new xmlHandler("chatroom.xml");
+if (!$xmlh->fileExist()) {
+    header("Location: error.html");
+    exit;
+}
 
-// // open the xml file
-// $xmlh->openFile();
+// open the xml file
+$xmlh->openFile();
 
-// //get all user tags
-// $all_users = $xmlh->getElement("users");
-// $userarr = $xmlh->getChildNodes("user");
+//get all user tags
+$userarr = $xmlh->getChildNodes("user");
+$delete_user = null;
 
-// // find the current user tag in the xml file
-// if(!$userarr){
-// 	foreach ($userarr as $user) {
-// 		$name = $xmlh->getAttribute($user, "name");
-// 		if($name === $username) {
-// 			$xmlh->removeElement($all_users, $user);
-// 		}
-// 	}
-// }
+// find the current user tag in the xml file
+foreach ($userarr as $user) {
+	$name = $xmlh->getAttribute($user, "name");
+	if($name == $username) {
+		$delete_user = $user;
+		break;
+	}
+}
 
-// $xmlh->saveFile();
+// delete the user
+if($delete_user) {
+	$all_users = $xmlh->getElement("users");
+	// $xmlh->removeElement($all_users, $delete_user);
+	$xmlh->removeElement($delete_user);
+} else {
+	
+}
+
+$xmlh->saveFile();
 //check null, if user exist
 //if not null, for each user
 //if name = current name"login name" ($user_name=$name<get from cookie

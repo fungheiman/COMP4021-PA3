@@ -2,7 +2,7 @@
 
 // if name is not in the post data, exit
 if (!isset($_POST["name"])) {
-    header("Location: error.php?");
+    header("Location: error.php");
     exit;
 }
 
@@ -28,11 +28,11 @@ $target_path = realpath(dirname(__FILE__)) . "/images/". basename( $_FILES["pict
 $allowFileType = array("image/jpeg", "image/jpg", "image/png");
 
 if( empty($_FILES['picture']['name']) ) {
-	$error = "noImage";
+	$error = "Please+upload+your+profile+picture";
 }
 
 else if ( !in_array($_FILES['picture']['type'], $allowFileType) ) {
-	$error = "wrongFormat";
+	$error = "Please+upload+a+jpeg+or+png+file";
 }
 
 // move to /images
@@ -41,7 +41,7 @@ if( $error ){
     exit;
 } else {
 	if (!move_uploaded_file($_FILES['picture']['tmp_name'], $target_path)) {
-		header("Location: error.php?error=uploadimagefail");
+		header("Location: error.php?error=Fail+to+upload+image");
     	exit;
 	}
 }
@@ -54,13 +54,13 @@ $userarr = $xmlh->getChildNodes("user");
 foreach ($userarr as $user) {
 	$name = $xmlh->getAttribute($user, "name");
 	if($name == $_POST["name"]) {
-		header("Location: error.php?error=duplicateName");
+		header("Location: error.php?error=This+username+is already+taken.+Please+choose+another+username.");
     	exit;
 	}
 
 	$file = $xmlh->getAttribute($user, "picture");
 	if($file == $target_path){
-		header("Location: error.php?error=duplicateFile");
+		header("Location: error.php?error=This+file+name+is already+taken.+Please+choose+another+file+name.");
     	exit;
 	}
 }

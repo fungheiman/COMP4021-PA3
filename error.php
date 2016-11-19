@@ -2,32 +2,13 @@
 
 if (isset($_GET["error"])) {
 	$error = $_GET["error"];
-	
-	if($error == "noImage") {
-		$message = "Please upload your profile picture";
-	} 
-
-	else if ($error == "wrongFormat") {
-		$message = "Please upload a jpeg or png file";
-	}
-	
-	else if ($error == "uploadimagefail"){
-		$message = "Fail to upload image";
-	}
-
-	else if ($error == "duplicateName"){
-		$message = "This username is already taken. Please choose another username.";
-	}
-
-	else if ($error == "duplicateFile"){
-		$message = "This file name is already taken. Please choose another file name.";
-	}
+	$message = str_replace("+", " ", $error);
 
 	echo "<script type='text/javascript'>alert('$message');</script>";
 }
 
 // get the name from cookie
-$name = $_COOKIE["name"];
+// $name = $_COOKIE["name"];
 
 print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 

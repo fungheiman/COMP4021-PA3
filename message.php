@@ -109,7 +109,6 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
             // Set the attributes and create the text
             nameNode.setAttribute("x", 100);
             nameNode.setAttribute("dy", 20);
-            nameNode.setAttribute("fill", color);
             nameNode.appendChild(document.createTextNode(nameStr));
 
             // Add the name to the text node

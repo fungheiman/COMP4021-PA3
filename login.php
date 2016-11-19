@@ -1,12 +1,27 @@
 <?php
 
 // if name is not in the post data, exit
-if (!isset($_POST["name"]) || preg_match("/[^A-Za-z0-9]/", $_POST["name"])) {
+if (!isset($_POST["name"])) {
     header("Location: error.html");
     exit;
 }
 
-if(empty($_FILES['userfile']['name'])) {
+// check uploaded image
+$errors = array();
+
+if( empty($_FILES['picture']['name']) ) {
+	$errors[] = "Please upload your profile picture";
+}
+
+$allowFileType = array("image/jpeg", "image/jpg", "image/png");
+if ( !in_array($_FILES['picture']['type'], $allowFileType) ) {
+	$errors[] = "Please upload JPEG or PNG file";
+}
+
+if( empty($errors) ){
+	move_uploaded_file($_FILES['picture']['tmp_name'], "images/". $_FILES['picture']['name']);
+} else {
+	print_r($errors);
 	header("Location: error.html");
     exit;
 }
@@ -31,6 +46,7 @@ $user_element = $xmlh->addElement($users_element, "user");
 
 // add the user name
 $xmlh->setAttribute($user_element, "name", $_POST["name"]);
+$xmlh->setAttribute($user_element, "picture", "images/". $_FILES['picture']['name']);
 
 // save the XML file
 $xmlh->saveFile();

@@ -82,7 +82,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
         }
 
         function updateChat(xmlDoc) {
-
+          
             //point to the message nodes
             var messages = xmlDoc.getElementsByTagName("message");
 
@@ -97,36 +97,34 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
             }
 
-            lastMsgID = messages.length;
-
-            
+            lastMsgID = messages.length;    
         }
 
         function showMessage(nameStr, contentStr, color){
                
-                var node = document.getElementById("chattext");
-                // Create the name text span
-                var nameNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            var node = document.getElementById("chattext");
+            // Create the name text span
+            var nameNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
 
-                // Set the attributes and create the text
-                nameNode.setAttribute("x", 100);
-                nameNode.setAttribute("dy", 20);
-                nameNode.setAttribute("fill", color);
-                nameNode.appendChild(document.createTextNode(nameStr));
+            // Set the attributes and create the text
+            nameNode.setAttribute("x", 100);
+            nameNode.setAttribute("dy", 20);
+            nameNode.setAttribute("fill", color);
+            nameNode.appendChild(document.createTextNode(nameStr));
 
-                // Add the name to the text node
-                node.appendChild(nameNode);
+            // Add the name to the text node
+            node.appendChild(nameNode);
 
-                // Create the score text span
-                var conetentNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            // Create the score text span
+            var conetentNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
 
-                // Set the attributes and create the text
-                conetentNode.setAttribute("x", 200);
-                conetentNode.setAttribute("fill", color);
-                conetentNode.appendChild(document.createTextNode(contentStr));
+            // Set the attributes and create the text
+            conetentNode.setAttribute("x", 200);
+            conetentNode.setAttribute("fill", color);
+            conetentNode.appendChild(document.createTextNode(contentStr));
 
-                // Add the name to the text node
-                node.appendChild(conetentNode);
+            // Add the name to the text node
+            node.appendChild(conetentNode);
         }
 
         //]]>

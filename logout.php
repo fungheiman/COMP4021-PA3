@@ -3,7 +3,7 @@
 require_once('xmlHandler.php');
 
 if (!isset($_COOKIE["name"])) {
-    header("Location: error.html");
+    header("Location: error.php");
     exit;
 } else {
 	$username = $_COOKIE["name"];
@@ -12,7 +12,7 @@ if (!isset($_COOKIE["name"])) {
 // create the chatroom xml file handler
 $xmlh = new xmlHandler("chatroom.xml");
 if (!$xmlh->fileExist()) {
-    header("Location: error.html");
+    header("Location: error.php");
     exit;
 }
 
@@ -42,13 +42,12 @@ if($delete_user) {
 }
 
 $xmlh->saveFile();
-//check null, if user exist
-//if not null, for each user
-//if name = current name"login name" ($user_name=$name<get from cookie
-//$xml->removeElement($user_node, $user)
-//remove the user name from the user list
-//the user tag will be removed after logout
 
+// remove cookie
+setcookie("name", "", time()-3600);
+unset($_COOKIE['name']);
+
+// redir to login
 header("Location: login.html");
 
 ?>

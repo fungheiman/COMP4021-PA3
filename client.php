@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_COOKIE["name"])) {
-    header("Location: error.html");
+    header("Location: error.php");
     return;
 }
 

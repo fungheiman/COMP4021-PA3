@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_COOKIE["name"])) {
-    header("Location: error.html");
+    header("Location: error.php");
     return;
 }
 
@@ -20,7 +20,7 @@ require_once('xmlHandler.php');
 // create the chatroom xml file handler
 $xmlh = new xmlHandler("chatroom.xml");
 if (!$xmlh->fileExist()) {
-    header("Location: error.html");
+    header("Location: error.php");
     exit;
 }
 

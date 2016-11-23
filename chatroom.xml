@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <chatroom>
-  <users><user name="w11" picture="/Applications/XAMPP/xamppfiles/htdocs/COMP4021-PA3/images/2222.png"/></users>
-  <messages/>
+  <users><user name="123" picture="images/1111.png"/><user name="1234" picture="images/3333.png"/><user name="555" picture="images/4444.png"/></users>
+  <messages><message name="456" color="orange">hi</message><message name="1234" color="black">12345</message><message name="666" color="black">hi</message><message name="er" color="black">check http://google.com</message></messages>
 </chatroom>

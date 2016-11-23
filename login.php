@@ -77,7 +77,7 @@ $user_element = $xmlh->addElement($users_element, "user");
 
 // add the user name
 $xmlh->setAttribute($user_element, "name", $_POST["name"]);
-$xmlh->setAttribute($user_element, "picture", $target_path);
+$xmlh->setAttribute($user_element, "picture", "images/". basename( $_FILES["picture"]["name"]));
 
 // save the XML file
 $xmlh->saveFile();

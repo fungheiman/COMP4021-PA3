@@ -116,13 +116,16 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 
             // Create the score text span
             var conetentNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            var regex = /(https?:\/\/[^\s]+)/g;
+
+            contentStr = contentStr.replace(regex, '<a fill="' + color + '" text-decoration="underline" xlink:show="new" xlink:href="$1">$1 </a>');
 
             // Set the attributes and create the text
             conetentNode.setAttribute("x", 200);
             conetentNode.setAttribute("fill", color);
-            conetentNode.appendChild(document.createTextNode(contentStr));
+            conetentNode.innerHTML = contentStr
 
-            // Add the name to the text node
+            // Add the content to the text node
             node.appendChild(conetentNode);
         }
 
@@ -139,9 +142,9 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
      >
 
         <g id="chatroom" style="visibility:hidden">                
-        <rect width="520" height="2000" style="fill:white;stroke:red;stroke-width:2"/>
-        <text x="260" y="40" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">Chat Window</text> 
-        <text id="chattext" y="45" style="font-size: 20px;font-weight:bold"/>
+        <rect width="800" height="2000" style="fill:white;stroke:red;stroke-width:2"/>
+        <text x="400" y="40" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">Chat Window</text> 
+        <text id="chattext" y="50" style="font-size: 20px;font-weight:bold"/>
       </g>
   </svg>
   

@@ -42,6 +42,11 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
             color.style.width = "23px";
             color.style.height = "23px";
         }
+
+        function onOnlineUserClick(){
+            window.open('online_users.php', '_blank'); 
+            window.focus();
+        }
         //]]>
         </script>
     </head>
@@ -68,19 +73,17 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input class="button" type="submit" value="Send Your Message" style="width: 200px" /></td>
+                    <td colspan="2"><input class="button" type="submit" value="Send Your Message" style="width: 200px;cursor:pointer;" /></td>
                 </tr>
             </table>
         </form>
         
         <!--logout button-->
-         <form action="logout.php" style="padding-top: 10px">
-            <input class="button" type="submit" value="Logout" style="width: 200px" />
+         <form action="logout.php" style="padding-top: 10px; padding-bottom: 10px;">
+            <input class="button" type="submit" value="Logout" style="width: 200px;cursor:pointer;" />
         </form>
-
-        <form action="logout.php">
-            <input class="button" type="submit" value="View Online Users" style="width: 200px" />
-        </form>
+        
+        <button type="button" onclick="onOnlineUserClick()" style="width: 200px;padding-top: 4px;padding-bottom: 4px; background-color: silver;border:1px solid black;cursor:pointer;">View Online Users</button>
 
 
     </body>
